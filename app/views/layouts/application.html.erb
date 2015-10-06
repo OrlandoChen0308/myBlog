@@ -1,14 +1,34 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>MyBlog</title>
+    <meta charset="utf-8">
+    <title>Blog - Orlando Chen</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link href="css/style.css" rel="stylesheet" media="screen">
+  
+  <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and mediqueries -->
+  <!--[if lt IE 9]>
+    <script src="js/bootstrap/html5shiv.js"></script>
+    <script src="js/bootstrap/respond.min.js"></script>
+  <![endif]-->
+
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
+        <script src="/javascripts/js/jquery.js"></script>
+        <!-- FASTCLICK -->
+        <script src="/javascripts/js/plugins/fastclick/fastclick.js"></script>
+        <!-- SMOOTH SCROLL -->
+        <script src="/javascripts/js/plugins/smooth-scroll/jquery.smooth-scroll.min.js"></script>
+        <!-- MIXITUP -->
+        <script src="/javascripts/js/plugins/mixitup/jquery.mixitup.min.js"></script>
+        
+        <script src="/javascripts/js/main.js"></script> 
+
 <body>
-
-<%= yield %>
-
+		<%= yield %>
 </body>
 </html>
