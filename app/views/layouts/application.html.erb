@@ -17,18 +17,48 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
-</head>
-        <script src="/javascripts/js/jquery.js"></script>
-        <!-- FASTCLICK -->
-        <script src="/javascripts/js/plugins/fastclick/fastclick.js"></script>
-        <!-- SMOOTH SCROLL -->
-        <script src="/javascripts/js/plugins/smooth-scroll/jquery.smooth-scroll.min.js"></script>
-        <!-- MIXITUP -->
-        <script src="/javascripts/js/plugins/mixitup/jquery.mixitup.min.js"></script>
-        
-        <script src="/javascripts/js/main.js"></script> 
+    <script>
+        $(document).ready(function() {
 
+    // page is now ready, initialize the calendar...
+
+    $('#calendar').fullCalendar({
+        events: '/events.json'
+    })
+
+});
+    </script>
+
+</head>
 <body>
-		<%= yield %>
+    <div class="container-fluid" id="container">
+            <div class="row top">
+                <div class="col-lg-8 col-md-8 col-sm-7 col-left">
+                    <div class="name"><%= link_to "Orlando Chen", root_path%></div>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-5 col-right">
+                    <nav>
+                        <ul class="list-inline" id="menu">
+                            <li class="active">
+                                <a href="index-2.html">Project</a>
+                            </li><!--
+                            --><li>
+                                <a href="blog.html">myApp</a>
+                            </li><!--
+                            --><li>
+                                <a href="contact.html">Portfolio</a>
+                            </li><!--
+                            --><li>
+                                <%= link_to image_tag("icon/icon-linkedin.png", :alt => "linkedin", :class => "social"),  'http://www.linkedin.com/in/orlandochen0308'%>
+                                <%= link_to image_tag("icon/icon-github.png", :alt => "github", :class => "social"),  'https://github.com/OrlandoChen0308'%>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+            <div class="container" id="container">
+                <%= yield %>
+            </div>          
+    </div>
 </body>
 </html>
