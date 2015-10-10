@@ -1,23 +1,52 @@
-<p id="notice"><%= notice %></p>
+<%	if notice.present? %>
+<p class="alert alert-info"><%= notice %></p>
+<%	end  %>
 
 <p>
-  <strong>Title:</strong>
+<h2>
   <%= @event.title %>
+</h2>
+
+  <small class="pull-right">
+
+    <% if @event.stat.status == false %>
+    <%=   form_for(@event.stat) do |f|%>
+    <%=   f.hidden_field :status, :value => true%>
+    <%=   f.submit " Mark Completed "%>    
+    <% end %> 
+  
+    <% elsif @event.stat.status == true%>
+    <%=   form_for(@event.stat) do |f|%>
+    <%=   f.hidden_field :status, :value => false%>
+    <%=   f.submit "Mark Incompleted"%>    
+    <% end %> 
+    <% else %>
+    <%=   "i am unsaved"%>
+    <% end %> 
+
+  </small>
 </p>
 
 <p>
-  <strong>Description:</strong>
-  <%= @event.description %>
+  <%= simple_format @event.description %>
 </p>
 
 <p>
   <strong>Start time:</strong>
-  <%= @event.start_time %>
+  <%= @event.start_time.to_formatted_s(:long) %>
 </p>
 
 <p>
   <strong>End time:</strong>
-  <%= @event.end_time %>
+  <%= @event.end_time.to_formatted_s(:long) %>
+</p>
+
+<p class = "text-muted">
+	<small>
+  		Post on <%= @event.created_at.to_formatted_s(:long) %>
+ 	</small>
+	
+
 </p>
 
 <%= link_to 'Edit', edit_event_path(@event) %> |

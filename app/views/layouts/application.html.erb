@@ -4,31 +4,20 @@
     <meta charset="utf-8">
     <title>Blog - Orlando Chen</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <!-- Bootstrap -->
-    <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
-    <link href="css/style.css" rel="stylesheet" media="screen">
-  
-  <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and mediqueries -->
-  <!--[if lt IE 9]>
-    <script src="js/bootstrap/html5shiv.js"></script>
-    <script src="js/bootstrap/respond.min.js"></script>
-  <![endif]-->
 
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
     <script>
-        $(document).ready(function() {
+    var ready = function() {
+        $('#calendar').fullCalendar({
+            events: '/events.json'
+        })    
+    };
 
-    // page is now ready, initialize the calendar...
-
-    $('#calendar').fullCalendar({
-        events: '/events.json'
-    })
-
-});
+    $(document).ready(ready);
+    $(document).on('page:load', ready);
     </script>
-
 </head>
 <body>
     <div class="container-fluid" id="container">
@@ -40,10 +29,10 @@
                     <nav>
                         <ul class="list-inline" id="menu">
                             <li class="active">
-                                <a href="index-2.html">Project</a>
+                                <%= link_to "Projects", root_url%>
                             </li><!--
                             --><li>
-                                <a href="blog.html">myApp</a>
+                                <%= link_to "myApp", events_url%>
                             </li><!--
                             --><li>
                                 <a href="contact.html">Portfolio</a>
@@ -57,7 +46,9 @@
                 </div>
             </div>
             <div class="container" id="container">
-                <%= yield %>
+                <div class="row bottom">
+                    <%= yield %>
+                </div>        
             </div>          
     </div>
 </body>

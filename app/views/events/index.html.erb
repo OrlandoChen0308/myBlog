@@ -1,12 +1,12 @@
-<div class="row bottom">
-<!--     <div class="row text-center">
+<!-- <div class="row bottom">
+ --><!--     <div class="row text-center">
  -->
 <p id="notice"><%= notice %></p>
 
 
 <h1>Listing Events</h1>
 
-<table>
+<table class="table">
   <thead>
     <tr>
       <th>Title</th>
@@ -21,7 +21,7 @@
     <% @events.each do |event| %>
       <tr>
         <td><%= event.title %></td>
-        <td><%= event.description %></td>
+        <td><%= truncate(event.description, length:100) %></td>
         <td><%= event.start_time %></td>
         <td><%= event.end_time %></td>
         <td><%= link_to 'Show', event %></td>
@@ -37,4 +37,6 @@
 <%= link_to 'New Event', new_event_path %>
 <div id='calendar'></div>
 
-</div>
+<br>
+<br>
+<!-- </div> -->

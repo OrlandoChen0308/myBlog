@@ -11,23 +11,23 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :title %><br>
-    <%= f.text_field :title %>
+    <%= f.text_field :title , class: 'form-control'%>
   </div>
-  <div class="field">
+  <div class="form-group">
     <%= f.label :description %><br>
-    <%= f.text_area :description %>
+    <%= f.text_area :description , class: 'form-control' %>
   </div>
-  <div class="field">
+  <div class="form-group">
     <%= f.label :start_time %><br>
     <%= f.datetime_select :start_time %>
   </div>
-  <div class="field">
+  <div class="form-group">
     <%= f.label :end_time %><br>
     <%= f.datetime_select :end_time %>
   </div>
-  <div class="actions">
-    <%= f.submit %>
+  <div class="form-group">
+    <%= f.submit "submit", class: 'btn, btn-block' %>
   </div>
 <% end %>
