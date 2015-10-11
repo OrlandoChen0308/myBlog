@@ -8,9 +8,20 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+
     <script>
     var ready = function() {
         $('#calendar').fullCalendar({
+            header: {
+                left: 'prev,next today',
+                center: 'title',
+                right: 'month,agendaWeek,agendaDay',
+                height: 650
+            },
+        /*
+            editable: true allow user to edit events.
+        */
+            editable: true,            
             events: '/events.json'
         })    
     };

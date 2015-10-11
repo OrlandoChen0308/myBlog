@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
-  resources :events
+  resources :events do
+    collection  { post :import}
+  end
+  
   resources :stats
   # , only: :create
   root 'static_pages#home'

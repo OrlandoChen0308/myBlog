@@ -1,10 +1,21 @@
 class EventsController < ApplicationController
   before_action :set_event, only: [:show, :edit, :update, :destroy]
 
+  def import
+    Event.import(params[:file])
+    redirect_to events_url, notice: "Events imported."
+  end
   # GET /events
   # GET /events.json
   def index
     @events = Event.all
+  #   respond_to do |format|
+  #     format.html
+  #     # format.csv { render text: @events.to_csv }      
+  #     format.csv { send_data @events.to_csv }
+  #     format.xls #{ send_data @events.to_csv(col_sep: "\t") }
+  # end
+
   end
 
   # GET /events/1

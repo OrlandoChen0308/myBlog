@@ -2,9 +2,22 @@
  --><!--     <div class="row text-center">
  -->
 <p id="notice"><%= notice %></p>
+<!-- 
+<p>
+  Download:
+  <%= link_to "CSV", events_path(format: "csv") %> |
+  <%= link_to "Excel", events_path(format: "xls") %>
+</p>
+ -->
+<div id='calendar' ></div>
 
+<h1>Import Events</h2>
+<%= form_tag import_events_path, multipart: true do %>
+  <%= file_field_tag  :file %>
+  <%= submit_tag "Import" %>
+<%  end %>
 
-<h1>Listing Events</h1>
+<h2>Listing Events</h1>
 
 <table class="table">
   <thead>
@@ -22,8 +35,8 @@
       <tr>
         <td><%= event.title %></td>
         <td><%= truncate(event.description, length:100) %></td>
-        <td><%= event.start_time %></td>
-        <td><%= event.end_time %></td>
+        <td><%= event.start_time.to_formatted_s(:long) %></td>
+        <td><%= event.end_time.to_formatted_s(:long) %></td>
         <td><%= link_to 'Show', event %></td>
         <td><%= link_to 'Edit', edit_event_path(event) %></td>
         <td><%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -35,7 +48,6 @@
 <br>
 
 <%= link_to 'New Event', new_event_path %>
-<div id='calendar'></div>
 
 <br>
 <br>

@@ -2,6 +2,23 @@ class Event < ActiveRecord::Base
 	 has_one :stat
 	 before_create :build_default_stat
 
+def self.to_csv(options = {})
+  CSV.generate(options) do |csv|
+    csv << column_names
+    all.each do |event|
+      csv << event.attributes.values_at(*column_names)
+    end
+  end
+end
+
+def self.import(file)
+  CSV.foreach(file.path, headers: true) do |row|
+    event = find_by_id(row["id"]) || new
+    event.attributes = row.to_hash.slice(*row.to_hash.keys)
+    event.save!
+  end
+end
+
 	private
 	def build_default_stat
   # build default profile instance. Will use default params.
