@@ -12,13 +12,13 @@
     <% if @event.stat.status == false %>
     <%=   form_for(@event.stat) do |f|%>
     <%=   f.hidden_field :status, :value => true%>
-    <%=   f.submit " Mark Completed "%>    
+    <%=   f.submit " Event Incompleted "%>    
     <% end %> 
   
     <% elsif @event.stat.status == true%>
     <%=   form_for(@event.stat) do |f|%>
     <%=   f.hidden_field :status, :value => false%>
-    <%=   f.submit "Mark Incompleted"%>    
+    <%=   f.submit "Event Completed"%>    
     <% end %> 
     <% else %>
     <%=   "i am unsaved"%>
