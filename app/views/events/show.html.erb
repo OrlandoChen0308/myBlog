@@ -18,7 +18,7 @@
     <% elsif @event.stat.status == true%>
     <%=   form_for(@event.stat) do |f|%>
     <%=   f.hidden_field :status, :value => false%>
-    <%=   f.submit "Event C ompleted"%>    
+    <%=   f.submit "Event Completed"%>    
     <% end %> 
     <% else %>
     <%=   "i am unsaved"%>
