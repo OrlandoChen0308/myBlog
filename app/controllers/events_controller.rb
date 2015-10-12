@@ -15,7 +15,7 @@ class EventsController < ApplicationController
   #     format.csv { send_data @events.to_csv }
   #     format.xls #{ send_data @events.to_csv(col_sep: "\t") }
   # end
-
+ 
   end
 
   # GET /events/1
