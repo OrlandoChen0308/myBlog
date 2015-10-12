@@ -1,7 +1,7 @@
 <%	if notice.present? %>
 <p class="alert alert-info"><%= notice %></p>
 <%	end  %>
-  
+
 <p>
 <h2>
   <%= @event.title %>
@@ -12,13 +12,13 @@
     <% if @event.stat.status == false %>
     <%=   form_for(@event.stat) do |f|%>
     <%=   f.hidden_field :status, :value => true%>
-    <%=   f.submit " Event Incompleted "%>    
+    <%=   f.submit " Mark Completed "%>    
     <% end %> 
   
     <% elsif @event.stat.status == true%>
     <%=   form_for(@event.stat) do |f|%>
     <%=   f.hidden_field :status, :value => false%>
-    <%=   f.submit "Event Completed"%>    
+    <%=   f.submit "Mark Incompleted"%>    
     <% end %> 
     <% else %>
     <%=   "i am unsaved"%>
