@@ -23,12 +23,12 @@
     <%= f.label :start_time %><br>
     <!-- <%= f.datetime_select :start_time %> -->
     <% Time.zone = 'Central Time (US & Canada)'%>
-    <%= f.datetime_select :start_time, :start_year => Time.now.year - 25, :end_year => Time.now.year + 55%>    
+    <%= f.datetime_select :start_time, :start_year => Time.now.year - 25, :end_year => Time.now.year + 75%>    
   </div>
   <div class="form-group">
     <%= f.label :end_time %><br>
     <!-- <%= f.datetime_select :end_time %> -->
-    <%= f.datetime_select :end_time, :start_year => Time.now.year - 25, :end_year => Time.now.year + 55%>     
+    <%= f.datetime_select :end_time, :start_year => Time.now.year - 25, :end_year => Time.now.year + 75%>     
   </div>
   <div class="form-group">
     <%= f.submit "submit", class: 'btn, btn-block' %>
