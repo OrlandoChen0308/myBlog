@@ -14,6 +14,11 @@
     <script>
     var ready = function() {
         $('#calendar').fullCalendar({
+            // googleCalendarApiKey: 'AIzaSyD92cU1w5tXjAtIuQQJSTXX7dGaw3i9QBw',
+            //     events: {
+            //         googleCalendarId: 'orlandochen0308@group.calendar.google.com',
+            //         className: 'gcal-event'// an option!
+            //     },
             header: {
                 left: 'prev,next today',
                 center: 'title',
@@ -23,7 +28,7 @@
         /*
             editable: true allow user to edit events.
         */
-            editable: true,            
+            // editable: true,            
             events: '/events.json'
         })    
     };

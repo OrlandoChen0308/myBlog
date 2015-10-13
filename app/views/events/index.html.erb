@@ -11,13 +11,18 @@
  -->
 <div id='calendar' ></div>
 
-<h1>Import Events</h2>
+<h1>Import Events</h1>
 <%= form_tag import_events_path, multipart: true do %>
   <%= file_field_tag  :file %>
   <%= submit_tag "Import" %>
 <%  end %>
+<br>
 
-<h2>Listing Events</h1>
+<%= link_to 'New Event', new_event_path %>
+
+<br>
+
+<h3>Listing Events</h3>
 
 <table class="table">
   <thead>
@@ -45,10 +50,6 @@
   </tbody>
 </table>
 
-<br>
 
-<%= link_to 'New Event', new_event_path %>
-
-<br>
 <br>
 <!-- </div> -->
